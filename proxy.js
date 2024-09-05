@@ -1,10 +1,11 @@
 const express = require('express');
 const axios = require('axios');
 const fs = require('fs');
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
-
+app.use(cors());
 app.get('/tots', async (req, res) => {
     const url = req.query.url;
     if (!url) {
