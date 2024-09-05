@@ -30,7 +30,7 @@ app.get('/tots', async (req, res) => {
         res.status(500).send('Error fetching the file');
     }
 });
-app.get('getFile',async (req, res) => {
+app.get('/getFile',async (req, res) => {
     const url = req.query.url;
     const filePath = path.join(__dirname, 'index.m3u8');
     res.download(filePath, (err) => {
