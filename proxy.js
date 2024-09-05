@@ -12,16 +12,11 @@ app.get('/proxy', async (req, res) => {
     }
 
     try {
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
+        // const response = await axios.get(url, { responseType: 'arraybuffer' });
         const filePath = path.join(__dirname, 'index.m3u8');
-
-        // Lưu file tạm thời
-        fs.writeFileSync(filePath, response.data);
-
         // Trả về file
         res.download(filePath, (err) => {
             // Xóa file tạm sau khi gửi
-            fs.unlinkSync(filePath);
             if (err) {
                 console.error(err);
                 return res.status(500).send('Error downloading file');
