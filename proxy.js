@@ -30,6 +30,16 @@ app.get('/tots', async (req, res) => {
         res.status(500).send('Error fetching the file');
     }
 });
+app.get('getFile',async (req, res) => {
+    const url = req.query.url;
+    const filePath = path.join(__dirname, 'index.m3u8');
+    res.download(filePath, (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error downloading file');
+        }
+    });
+})
 
 const PORT = 443;
 app.listen(PORT, () => {
