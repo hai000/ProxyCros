@@ -15,6 +15,7 @@ app.get('/tots', async (req, res) => {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
         const fileName = path.split('/').pop();
         const filePath = path.join(__dirname, `${fileName}.ts`);
+        console.log(filePath)
         fs.writeFileSync(filePath, response.data);
 
 
