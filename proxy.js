@@ -7,11 +7,10 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.get('/tots', async (req, res) => {
-    const url = req.query.url;
+    let url = req.query.url.replace(".ts","");
     if (!url) {
         return res.status(400).send('Missing URL parameter');
     }
-    url.replace(".ts","")
     try {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
         const fileName = url.split('/').pop();
@@ -69,8 +68,8 @@ function modifyFile(filePath,res) {
         console.log("1")
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
-                lines[i + 1].replace("\n","")
-                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]}`
+                lines[i + 1] = lines[i + 1].trim()
+                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]}.ts`
                 i++;
             }
         }
