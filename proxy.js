@@ -67,7 +67,7 @@ function modifyFile(filePath,res) {
         const lines = data.split('\n'); // Tách file thành các dòng
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
-                lines[i + 1] = 'https://proxycros.onrender.com/tots?url=' + lines[i + 1] +".ts";
+                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]}.ts`
                 i++;
             }
         }
