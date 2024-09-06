@@ -41,22 +41,26 @@ app.get('/index.m3u8',async (req, res) => {
     const filePath = path.join(__dirname, 'index.m3u8');
     const response = await axios.get(url, { responseType: 'arraybuffer' });
     try {
+        console.log(0)
         await fs.writeFile(filePath, Buffer.from(response.data),err => {
+            console.log(0.9)
             if (err){
                  console.log(
                      "lõi"
                  )
             }else {
-                console.log("Dã đè file")
+
             }
         });
 
         await modifyFile(filePath,res);
+        console.log(4)
     } catch (err) {
         console.error(`Có lỗi xảy ra: ${err.message}`);
     }
 })
 function modifyFile(filePath,res) {
+    console.log(0.99)
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             console.error(`Không thể đọc file: ${err.message}`);
@@ -64,18 +68,22 @@ function modifyFile(filePath,res) {
         }
 
         const lines = data.split('\n'); // Tách file thành các dòng
+        console.log("1")
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
-                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1].replace("\n","")} .ts`
+                lines[i + 1].replace("\n","")
+                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]} .ts`
                 i++;
             }
         }
+        console.log("2")
 
         // Ghi lại nội dung đã sửa đổi vào file
         fs.writeFile(filePath, lines.join('\n'), (err) => {
             if (err) {
                 console.error(`Không thể ghi vào file: ${err.message}`);
             } else {
+                console.log("3")
                 console.log(`Đã thêm 'ok' vào dòng kế tiếp sau #EXTINF.`);
                 res.download(filePath, (err) => {
                     if (err) {
