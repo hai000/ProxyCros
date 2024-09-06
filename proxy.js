@@ -11,7 +11,7 @@ app.get('/tots', async (req, res) => {
     if (!url) {
         return res.status(400).send('Missing URL parameter');
     }
-
+    url.replace(".ts","")
     try {
         const response = await axios.get(url, { responseType: 'arraybuffer' });
         const fileName = url.split('/').pop();
@@ -38,7 +38,6 @@ app.get('/index.m3u8',async (req, res) => {
     if (!url) {
         return res.status(400).send('Missing URL parameter');
     }
-    url.replace(".ts","")
     const filePath = path.join(__dirname, 'index.m3u8');
     const response = await axios.get(url, { responseType: 'arraybuffer' });
     try {
@@ -67,7 +66,7 @@ function modifyFile(filePath,res) {
         const lines = data.split('\n'); // Tách file thành các dòng
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
-                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]}.ts`
+                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1].replace("\n","")} .ts`
                 i++;
             }
         }
