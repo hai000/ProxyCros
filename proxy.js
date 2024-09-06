@@ -70,7 +70,7 @@ function modifyFile(filePath,res) {
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
                 lines[i + 1].replace("\n","")
-                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]} .ts`
+                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]}`
                 i++;
             }
         }
