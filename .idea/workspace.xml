@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51756488-3df8-4c46-a9a9-a8f8369ac6b0" name="Changes" comment="fix" />
+    <list default="true" id="51756488-3df8-4c46-a9a9-a8f8369ac6b0" name="Changes" comment="fix">
+      <change beforePath="$PROJECT_DIR$/.vercel/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vercel/project.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -108,7 +112,7 @@
       <workItem from="1726482680269" duration="56000" />
       <workItem from="1726483016307" duration="721000" />
       <workItem from="1726483886528" duration="258000" />
-      <workItem from="1726484512680" duration="1306000" />
+      <workItem from="1726484512680" duration="1658000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -398,7 +402,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726485714302</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix">
+      <option name="closed" value="true" />
+      <created>1726485919960</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1726485919960</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix">
+      <option name="closed" value="true" />
+      <created>1726485971775</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1726485971775</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
