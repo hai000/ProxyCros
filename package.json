@@ -4,7 +4,6 @@
   "description": "",
   "main": "proxy.js",
   "scripts": {
-    "build": "",
     "start": "node proxy.js"
   },
   "keywords": [],
