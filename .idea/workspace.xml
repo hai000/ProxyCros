@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51756488-3df8-4c46-a9a9-a8f8369ac6b0" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/api/proxy.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.m3u8" beforeDir="false" afterPath="$PROJECT_DIR$/api/index.m3u8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proxy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/proxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +61,7 @@
       <recent name="G:\Code\Js\server_cros_proxy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Code\Js\server_cros_proxy\api" />
       <recent name="G:\Code\Js\server_cros_proxy" />
     </key>
   </component>
@@ -117,7 +115,7 @@
       <workItem from="1726482680269" duration="56000" />
       <workItem from="1726483016307" duration="721000" />
       <workItem from="1726483886528" duration="258000" />
-      <workItem from="1726484512680" duration="2290000" />
+      <workItem from="1726484512680" duration="2749000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -447,7 +445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726486434275</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix">
+      <option name="closed" value="true" />
+      <created>1726486836163</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1726486836163</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
