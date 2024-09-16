@@ -31,19 +31,6 @@ app.get('/tots', async (req, res) => {
         res.status(500).send('Error fetching the file');
     }
 });
-app.get('/',async (req, res) => {
-    const url = req.query.url;
-    if (!url) {
-        return res.status(400).send('Missing URL parameter');
-    }
-    await axios.get(url).then(result => {
-        // Do something with result
-        console.log(result)
-    })
-        .catch(err => {
-            console.error('Error:', err);
-        });
-})
 app.get('/index.m3u8',async (req, res) => {
     const url = req.query.url;
     if (!url) {
