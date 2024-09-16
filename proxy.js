@@ -6,32 +6,32 @@ const path = require('path');
 
 const app = express();
 app.use(cors());
-// app.get('/tots', async (req, res) => {
-//     let url = req.query.url.replace(".ts","");
-//     if (!url) {
-//         return res.status(400).send('Missing URL parameter');
-//     }
-//     try {
-//         const response = await axios.get(url, { responseType: 'arraybuffer' });
-//         const fileName = url.split('/').pop();
-//         const filePath = path.join(__dirname, `${fileName}`);
-//         console.log(filePath)
-//         fs.writeFileSync(filePath, response.data);
-//
-//
-//         res.download(filePath, (err) => {
-//             // Xóa file tạm sau khi gửi
-//             fs.unlinkSync(filePath);
-//             if (err) {
-//                 console.error(err);
-//                 return res.status(500).send('Error downloading file');
-//             }
-//         });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).send('Error fetching the file');
-//     }
-// });
+app.get('/tots', async (req, res) => {
+    let url = req.query.url
+    if (!url) {
+        return res.status(400).send('Missing URL parameter');
+    }
+    try {
+        const response = await axios.get(url, { responseType: 'arraybuffer' });
+        const fileName = url.split('/').pop();
+        const filePath = path.join(__dirname, `${fileName}`);
+        console.log(filePath)
+        fs.writeFileSync(filePath, response.data);
+
+
+        res.download(filePath, (err) => {
+            // Xóa file tạm sau khi gửi
+            fs.unlinkSync(filePath);
+            if (err) {
+                console.error(err);
+                return res.status(500).send('Error downloading file');
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching the file');
+    }
+});
 app.get('/',async (req, res) => {
     const url = req.query.url;
     if (!url) {
@@ -81,7 +81,7 @@ function modifyFile(filePath,res) {
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
                 lines[i + 1] = lines[i + 1].trim()
-                lines[i + 1] = `http://bentre5.hoangai.vn:8082/bypass/ts3.php?url=${lines[i + 1]}`
+                lines[i + 1] = `https://proxy.fit.id.vn/tots?url=${lines[i + 1]}`
                 i++;
             }
         }
