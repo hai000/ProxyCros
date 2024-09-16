@@ -6,32 +6,45 @@ const path = require('path');
 
 const app = express();
 app.use(cors());
-app.get('/tots', async (req, res) => {
-    let url = req.query.url.replace(".ts","");
+// app.get('/tots', async (req, res) => {
+//     let url = req.query.url.replace(".ts","");
+//     if (!url) {
+//         return res.status(400).send('Missing URL parameter');
+//     }
+//     try {
+//         const response = await axios.get(url, { responseType: 'arraybuffer' });
+//         const fileName = url.split('/').pop();
+//         const filePath = path.join(__dirname, `${fileName}`);
+//         console.log(filePath)
+//         fs.writeFileSync(filePath, response.data);
+//
+//
+//         res.download(filePath, (err) => {
+//             // Xóa file tạm sau khi gửi
+//             fs.unlinkSync(filePath);
+//             if (err) {
+//                 console.error(err);
+//                 return res.status(500).send('Error downloading file');
+//             }
+//         });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send('Error fetching the file');
+//     }
+// });
+app.get('/',async (req, res) => {
+    const url = req.query.url;
     if (!url) {
         return res.status(400).send('Missing URL parameter');
     }
-    try {
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
-        const fileName = url.split('/').pop();
-        const filePath = path.join(__dirname, `${fileName}.ts`);
-        console.log(filePath)
-        fs.writeFileSync(filePath, response.data);
-
-
-        res.download(filePath, (err) => {
-            // Xóa file tạm sau khi gửi
-            fs.unlinkSync(filePath);
-            if (err) {
-                console.error(err);
-                return res.status(500).send('Error downloading file');
-            }
+    await axios.get(url).then(result => {
+        // Do something with result
+        console.log(result)
+    })
+        .catch(err => {
+            console.error('Error:', err);
         });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error fetching the file');
-    }
-});
+})
 app.get('/index.m3u8',async (req, res) => {
     const url = req.query.url;
     if (!url) {
@@ -65,23 +78,20 @@ function modifyFile(filePath,res) {
         }
 
         const lines = data.split('\n'); // Tách file thành các dòng
-        console.log("1")
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
                 lines[i + 1] = lines[i + 1].trim()
-                lines[i + 1] = `https://proxycros.onrender.com/tots?url=${lines[i + 1]}.ts`
+                lines[i + 1] = `https://thingproxy.freeboard.io/fetch/${lines[i + 1]}`
                 i++;
             }
         }
-        console.log("2")
 
         // Ghi lại nội dung đã sửa đổi vào file
         fs.writeFile(filePath, lines.join('\n'), (err) => {
             if (err) {
                 console.error(`Không thể ghi vào file: ${err.message}`);
             } else {
-                console.log("3")
-                console.log(`Đã thêm 'ok' vào dòng kế tiếp sau #EXTINF.`);
+                console.log(`OK`);
                 res.download(filePath, (err) => {
                     if (err) {
                         console.error(err);
