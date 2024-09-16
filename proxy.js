@@ -91,4 +91,3 @@ const PORT = 443;
 app.listen(PORT, () => {
     console.log(`Proxy server is running on http://localhost:${PORT}`);
 });
-module.exports = app;
