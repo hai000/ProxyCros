@@ -81,7 +81,7 @@ function modifyFile(filePath,res) {
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
                 lines[i + 1] = lines[i + 1].trim()
-                lines[i + 1] = `https://www.whateverorigin.org/get?url=${lines[i + 1]}`
+                lines[i + 1] = `http://bentre5.hoangai.vn:8082/bypass/ts3.php?url=${lines[i + 1]}`
                 i++;
             }
         }
