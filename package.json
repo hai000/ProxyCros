@@ -4,7 +4,7 @@
   "description": "",
   "main": "proxy.js",
   "scripts": {
-    "start": "node proxy.js"
+    "start": "node api/proxy.ts"
   },
   "keywords": [],
   "author": "",

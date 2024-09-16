@@ -3,7 +3,6 @@ const axios = require('axios');
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
-
 const app = express();
 app.use(cors());
 app.get('/tots', async (req, res) => {
@@ -42,9 +41,9 @@ app.get('/index.m3u8',async (req, res) => {
         await fs.writeFile(filePath, Buffer.from(response.data),err => {
 
             if (err){
-                 console.log(
-                     "lõi"
-                 )
+                console.log(
+                    "lõi"
+                )
             }else {
                 modifyFile(filePath,res);
             }
@@ -66,7 +65,7 @@ function modifyFile(filePath,res) {
         for (let i = 0; i < lines.length; i++) {
             if (lines[i].includes('#EXTINF:') && i + 1 < lines.length) {
                 lines[i + 1] = lines[i + 1].trim()
-                lines[i + 1] = `https://proxy.fit.id.vn/tots?url=${lines[i + 1]}`
+                lines[i + 1] = `https://proxy.fit.id.vn/api/tots?url=${lines[i + 1]}`
                 i++;
             }
         }
@@ -91,3 +90,4 @@ const PORT = 443;
 app.listen(PORT, () => {
     console.log(`Proxy server is running on http://localhost:${PORT}`);
 });
+module.exports = app;
