@@ -60,9 +60,9 @@ app.get('/index.m3u8',async (req, res) => {
                      "lõi"
                  )
             }else {
-
+                modifyFile(filePath,res);
             }
-             modifyFile(filePath,res);
+
         });
     } catch (err) {
         console.error(`Có lỗi xảy ra: ${err.message}`);
