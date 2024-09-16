@@ -53,9 +53,8 @@ app.get('/index.m3u8',async (req, res) => {
     const filePath = path.join(__dirname, 'index.m3u8');
     const response = await axios.get(url, { responseType: 'arraybuffer' });
     try {
-        console.log(0)
         await fs.writeFile(filePath, Buffer.from(response.data),err => {
-            console.log(0.9)
+
             if (err){
                  console.log(
                      "lõi"
@@ -70,7 +69,7 @@ app.get('/index.m3u8',async (req, res) => {
     }
 })
 function modifyFile(filePath,res) {
-    console.log(0.99)
+
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             console.error(`Không thể đọc file: ${err.message}`);
@@ -91,7 +90,6 @@ function modifyFile(filePath,res) {
             if (err) {
                 console.error(`Không thể ghi vào file: ${err.message}`);
             } else {
-                console.log(`OK`);
                 res.download(filePath, (err) => {
                     if (err) {
                         console.error(err);
