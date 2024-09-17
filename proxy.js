@@ -42,7 +42,7 @@ app.get('/index.m3u8',async (req, res) => {
 
             if (err){
                 console.log(
-                    "lõi"
+                    "lõi ghi file"
                 )
             }else {
                 modifyFile(filePath,res);
