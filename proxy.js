@@ -3,6 +3,7 @@ const axios = require('axios');
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
+const Serverless = require('serverless-http');
 
 const app = express();
 app.use(cors());
@@ -36,7 +37,7 @@ app.get('/index.m3u8',async (req, res) => {
     if (!url) {
         return res.status(400).send('Missing URL parameter');
     }
-    const filePath = path.join(__dirname, 'index.m3u8');
+    const filePath = path.join('tmp', 'index.m3u8');
     const response = await axios.get(url, { responseType: 'arraybuffer' });
     try {
         await fs.writeFile(filePath, Buffer.from(response.data),err => {
@@ -86,8 +87,8 @@ function modifyFile(filePath,res) {
         });
     });
 }
+const PORT = 433
+app.listen(PORT,()=>{
+    console.log(`Running http://localhost:${PORT}`)
+})
 
-const PORT = 443;
-app.listen(PORT, () => {
-    console.log(`Proxy server is running on http://localhost:${PORT}`);
-});

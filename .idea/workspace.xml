@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="51756488-3df8-4c46-a9a9-a8f8369ac6b0" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genezio.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/genezio.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/proxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +120,8 @@
       <workItem from="1726483016307" duration="721000" />
       <workItem from="1726483886528" duration="258000" />
       <workItem from="1726484512680" duration="4314000" />
-      <workItem from="1726490604104" duration="2349000" />
+      <workItem from="1726490604104" duration="4863000" />
+      <workItem from="1726495563447" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="change">
       <option name="closed" value="true" />
@@ -477,7 +483,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726487627818</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="fix">
+      <option name="closed" value="true" />
+      <created>1726493266286</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1726493266286</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
