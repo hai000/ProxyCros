@@ -85,8 +85,8 @@ function modifyFile(filePath,res) {
         });
     });
 }
-// const PORT = 433
-// app.listen(PORT,()=>{
-//     console.log(`Running http://localhost:${PORT}`)
-// })
+const PORT = 3000
+app.listen(PORT,()=>{
+    console.log(`Running http://localhost:${PORT}`)
+})
 
