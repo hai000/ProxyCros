@@ -35,7 +35,7 @@ app.get('/index.m3u8',async (req, res) => {
     if (!url) {
         return res.status(400).send('Missing URL parameter');
     }
-    const filePath = path.join('tmp', 'index.m3u8');
+    const filePath = path.join(__dirname, 'index.m3u8');
     const response = await axios.get(url, { responseType: 'arraybuffer' });
     try {
         await fs.writeFile(filePath, Buffer.from(response.data),err => {
