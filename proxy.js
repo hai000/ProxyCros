@@ -3,35 +3,33 @@ const axios = require('axios');
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
-const Serverless = require('serverless-http');
-
 const app = express();
 app.use(cors());
-app.get('/tots', async (req, res) => {
-    let url = req.query.url
-    if (!url) {
-        return res.status(400).send('Missing URL parameter');
-    }
-    try {
-        const response = await axios.get(url, { responseType: 'arraybuffer' });
-        const fileName = url.split('/').pop();
-        const filePath = path.join(__dirname, `${fileName}.ts`);
-        fs.writeFileSync(filePath, response.data);
-
-
-        res.download(filePath, (err) => {
-            // Xóa file tạm sau khi gửi
-            fs.unlinkSync(filePath);
-            if (err) {
-                console.error(err);
-                return res.status(500).send('Error downloading file');
-            }
-        });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error fetching the file');
-    }
-});
+// app.get('/tots', async (req, res) => {
+//     let url = req.query.url
+//     if (!url) {
+//         return res.status(400).send('Missing URL parameter');
+//     }
+//     try {
+//         const response = await axios.get(url, { responseType: 'arraybuffer' });
+//         const fileName = url.split('/').pop();
+//         const filePath = path.join(__dirname, `${fileName}.ts`);
+//         fs.writeFileSync(filePath, response.data);
+//
+//
+//         res.download(filePath, (err) => {
+//             // Xóa file tạm sau khi gửi
+//             fs.unlinkSync(filePath);
+//             if (err) {
+//                 console.error(err);
+//                 return res.status(500).send('Error downloading file');
+//             }
+//         });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send('Error fetching the file');
+//     }
+// });
 app.get('/index.m3u8',async (req, res) => {
     const url = req.query.url;
     if (!url) {
